@@ -29,6 +29,8 @@ HOW TO COMPILE THE GAME (linux/macOS)
     C -> COLLECTIBLE
 
     here is an example of a valid map (it has to be .ber file) :
+    ![image](https://github.com/SebastiaoJeronimo/so_long/assets/99453107/e0aac06d-7bf7-4173-8fb4-4568188e609a)
 
 
 EXAMPLE OF THE GAME:
+![image](https://github.com/SebastiaoJeronimo/so_long/assets/99453107/54f67897-1a04-42e2-8c34-47090a72ace3)
