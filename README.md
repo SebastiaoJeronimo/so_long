@@ -28,7 +28,9 @@ HOW TO COMPILE THE GAME (linux/macOS)
     E -> EXIT
     C -> COLLECTIBLE
 
-here is an example of a valid map (it has to be .ber file) :
+                    here is an example of a valid map (it has to be .ber file) :
+
+
 ![image](https://github.com/SebastiaoJeronimo/so_long/assets/99453107/ab708900-892b-4ea3-98b8-a6deae3a6674)
 
 
