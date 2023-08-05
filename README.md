@@ -30,6 +30,7 @@ HOW TO COMPILE THE GAME (linux/macOS)
     P -> PLAYER
     E -> EXIT
     C -> COLLECTIBLE
+    (TO MOVE USE WASD) 
 
 here is an example of a valid map (it has to be .ber file) :
 
@@ -39,3 +40,4 @@ here is an example of a valid map (it has to be .ber file) :
 
 EXAMPLE OF THE GAME: (corresponds to the map above but i collected a few guaranas)
 ![image](https://github.com/SebastiaoJeronimo/so_long/assets/99453107/54f67897-1a04-42e2-8c34-47090a72ace3)
+
