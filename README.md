@@ -11,7 +11,7 @@ HOW TO COMPILE THE GAME (linux/macOS)
 1 - install the packages necessary to compile the game (copy this line)  
     sudo apt-get update && sudo apt-get install xorg libxext-dev zlib1g-dev libbsd-dev  
 
-2 - compile all the project (copy this line)  
+2 - compile all the project (copy this lines)  
     cd mlx_linux && make && cd  
     make re  
     
