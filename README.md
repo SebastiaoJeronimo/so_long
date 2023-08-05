@@ -8,17 +8,15 @@ i also used minilibx (mlx_linux) for the graphics
 
 HOW TO COMPILE THE GAME (linux/macOS)
 
-1 - install the packages necessary to compile the game (copy this line)
+1 - install the packages necessary to compile the game (copy this line)  
+    sudo apt-get update && sudo apt-get install xorg libxext-dev zlib1g-dev libbsd-dev  
 
-    sudo apt-get update && sudo apt-get install xorg libxext-dev zlib1g-dev libbsd-dev
-
-2 - compile all the project (copy this line)
-
-    cd mlx_linux && make && cd .. && make re
-
-3 - run the executable file (copy this line)
-
-    ./capy_adventure map.ber
+2 - compile all the project (copy this line)  
+    cd mlx_linux && make && cd  
+    make re  
+    
+3 - run the executable file (copy this line)  
+    ./capy_adventure map.ber  
 
 4 - If you want to change the map
     the .ber file it works like an .txt file each map must have a P and a E and at least a C
