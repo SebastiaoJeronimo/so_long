@@ -18,7 +18,7 @@ HOW TO COMPILE THE GAME (linux/macOS)
 3 - run the executable file (copy this line)  
     ./capy_adventure map.ber  
     
-4 - to recompile all the project (copy this lines)  
+4 - to recompile all the project (copy this line)  
     make re && ./capy_adventure map.ber  
     
 5 - If you want to change the map
