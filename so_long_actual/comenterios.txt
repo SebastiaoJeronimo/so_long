@@ -1,0 +1,236 @@
+//initialize window
+/*int	main(void)
+{
+	void	*mlx;
+	void	*mlx_win;
+
+	mlx = mlx_init(); stablishes an instance with mlx graphic system
+	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!"); (we can close the window with cntrl+C on the terminal) (gives a pointer to the window)
+	mlx_loop(mlx); mlx loop to initiate the window rendering
+}*/
+
+
+/*int	main(void)
+{
+	void	*img;
+	void	*mlx;
+
+	mlx = mlx_init();
+	img = mlx_new_image(mlx, 1920, 1080); // iniciar imagem com tamanho 1920*1080
+}*/
+
+
+/*
+#include <mlx.h>
+
+typedef struct	s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
+
+int	main(void)
+{
+	void	*mlx;
+	t_data	img;
+
+	mlx = mlx_init();
+	img.img = mlx_new_image(mlx, 1920, 1080);
+
+
+	** After creating an image, we can call `mlx_get_data_addr`, we pass
+	** `bits_per_pixel`, `line_length`, and `endian` by reference. These will
+	** then be set accordingly for the *current* data address.
+	
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
+								&img.endian);
+} 
+*/
+
+/*
+THIS DIDNT WORK
+typedef struct	s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
+
+
+int	main(void)
+{
+	void	*mlx;
+	void	*mlx_win;
+	t_data	img;
+
+	mlx = mlx_init();
+	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
+	img.img = mlx_new_image(mlx, 1920, 1080);
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
+								&img.endian);
+	mlx_pixel_put(&img, 5, 5, 0x00FF0000);
+	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
+	mlx_loop(mlx);
+}*/
+
+/* FUNCAO OM VARIAVEL GLOBAL QUE DESTROI JANELA NAO E ASSIM 
+
+typedef struct	s_vars {
+	void	*mlx;
+	void	*win;
+}				t_vars;
+
+t_vars	vars;
+
+int	close()
+{
+	mlx_destroy_window(vars.mlx, vars.win);
+	return (0);
+}
+
+int	main(void)
+{
+
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, 1920, 1080, "Hello world!");
+	mlx_hook(vars.win, 2, 1L<<0, close, &vars);
+	mlx_loop(vars.mlx);
+}*/
+
+/* OK JA FUNCIONA
+typedef struct	s_vars {
+	void	*mlx;
+	void	*win;
+}				t_vars;
+
+int	close(int keycode, t_vars *vars)
+{
+	keycode = 0;
+	mlx_destroy_window(vars->mlx, vars->win);
+	return (0);
+}
+
+int	main(void)
+{
+	t_vars	vars;
+
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, 1920, 1080, "Hello world!");
+	mlx_hook(vars.win, 2, 1L<<0, close, &vars);
+	mlx_loop(vars.mlx);
+}*/
+
+/* IMPRIME O KEYCODE E UMA MENSGAEM SEMPRE QUE UMA TECLA DO PC E PREMIDA */
+/*#include <mlx.h>
+#include <stdio.h>
+
+typedef struct	s_vars {
+	void	*mlx;
+	void	*win;
+}				t_vars;
+
+int	key_hook(int keycode, t_vars *vars)
+{
+	printf("%d",keycode);
+	vars->mlx = vars->mlx;
+	printf("Hello from key_hook!\n");
+	return (0);
+}
+
+int	main(void)
+{
+	t_vars	vars;
+
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, 640, 480, "Hello world!");
+	mlx_key_hook(vars.win, key_hook, &vars);
+	mlx_loop(vars.mlx);
+}*/
+
+
+/*
+#include <mlx.h>
+
+int	main(void)
+{
+	void	*mlx;
+	void	*img;
+	char	*relative_path = "./cave.xpm";
+	int		img_width;
+	int		img_height;
+
+	mlx = mlx_init();
+	img = mlx_xpm_file_to_image(mlx, relative_path, &img_width, &img_height);
+}*/
+
+//PULGA MECANICA
+
+/*
+int main(void)
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+
+	mlx_ptr = mlx_init();
+	if (!mlx_ptr) //checka se nao deu erro
+		return (1);
+	win_ptr = mlx_new_window (mlx_ptr, 300, 300, "Hello World");
+	if (!win_ptr) //checka se nao deu erro
+		return (2);
+	mlx_loop(mlx_ptr);
+	return (0);
+}
+*/
+
+/*
+t_img	new_img(int w, int h, t_win window)
+{
+	t_img	image;
+
+	image.win = window;
+	image.img_ptr = mlx_new_image(window.mlx_ptr, w, h);
+	image.addr = mlx_get_data_addr(image.img_ptr, &(image.bpp),
+			&(image.line_len), &(image.endian));
+	image.w = w;
+	image.h = h;
+	return (image);
+}*/
+
+/*
+t_win new_program(int w, int h, char *str)
+{
+	void	*mlx_ptr;
+
+	mlx_ptr = mlx_init();
+	return ((t_win) {mlx_ptr, mlx_new_window(mlx_ptr, w, h, str), w, h});
+}*/
+
+/*
+int main(void)
+{
+
+	t_win tutorial= new_program(1000, 1000, "New Program");
+	if (!tutorial.mlx_ptr || !tutorial.win_ptr)
+		return (1);
+
+		t_img	image_4x4;
+
+	mlx_loop(tutorial.mlx_ptr); 
+
+	
+
+	return (0);
+
+   
+}*/
+/*
+gnl com um counter para cada vez que funciona que vai ser o teu height
+a primeira gnl  fazes um strlen e guardas no struct
+a partir da segubnda gnl compara o width(strlen)
+se der diferente e invalid map logo
+se derem todos iguais ate ao fim tens o height(counter) e o width
+coloca ja o heught no struct
+*/
